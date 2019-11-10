@@ -1,0 +1,303 @@
+/*part of CSS are refrence from "https://github.com/kthornbloom/Monthly" */
+body{
+	background-color: #fffBBf;
+}
+
+/*Calendar*/
+
+.calendar{
+	display: inline-block;
+	width: 50%;
+	height:250px;
+	width:600px;
+	/*margin: 0 auto;*/
+}
+
+
+
+/*Header*/
+.header {
+	position: relative;
+	text-align:center;
+	padding:10px;
+	background: #fff;
+	height: 40px;
+	box-sizing: border-box;
+}
+
+.header-title {
+	font-size:13px;
+	text-transform: uppercase;
+	display: inline-block;
+	border: 1px solid #ccc;
+	color: #545454;
+	text-decoration: none;
+	font-size: 11px;
+	height: 25px;
+	padding: 3px 10px 0 10px;
+	box-sizing: border-box;
+	transition:background .1s;
+	border-top-left-radius:15px;
+	border-bottom-left-radius:15px;
+	border-top-right-radius:15px;
+	border-bottom-right-radius:15px;
+	background: #F3F3F5;
+}
+
+.header-title button:hover {
+	background: #8b8b8b;
+	border:1px solid #8b8b8b;
+	color:#fff;
+}
+
+.header-title button:active {
+	background: #222;
+	border:1px solid #222;
+	transition:none;
+}
+
+.header-title-month{
+	font-size: 15px;
+}
+
+/*Buttons*/
+.prev{
+	position: absolute;
+	top:0;
+	left:0;
+	width:70px;
+	height:100%;
+	opacity: .5;
+	background: none;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.next{
+	position: absolute;
+	top:0;
+	right:0;
+	width:50px;
+	height:100%;
+	opacity: .5;
+	background: none;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+
+.prev{
+	border: hidden;
+	background: none;
+}
+
+.next{
+	border: hidden;
+	background: none;
+}
+
+/*Day titles*/
+
+.day-title {
+	display:table;
+	table-layout:fixed;
+	width:100%;
+	background: #fff;
+	color: #545454;
+	border-bottom: 1px solid #EBEBEB;
+}
+
+.day-title div {
+	width: 14.28%!important;
+	display:table-cell;
+	box-sizing:border-box;
+	position: relative;
+	font-weight: bold;
+	text-align:center;
+	text-transform: uppercase;
+	font-size:14px;
+}
+
+/*Day blocks*/
+
+.day:before {
+	content: "";
+	display: block;
+	padding-top: 100%;
+	float: left;
+}
+
+.dates{
+	display:table;
+	table-layout:fixed;
+	width:100%;
+	overflow: hidden;
+}
+.week {
+	display:table-row;
+	width:100%;
+}
+
+.day, .day-blank {
+	width: 14.28%!important;
+	display:table-cell;
+	vertical-align: top;
+	box-sizing:border-box;
+	position: relative;
+	font-weight: bold;
+	color:inherit;
+	background: #fff;
+	box-shadow: 0 0 0 1px #EBEBEB;
+	-webkit-transition: .25s;
+	transition:.25s;
+	text-decoration: none;
+}
+
+.day-blank {
+	background:#F3F3F5;
+}
+
+.day-number {
+	color: #585858;
+	position: relative;
+	line-height: 20px;
+	margin: 3px;
+	font-size:11px;
+}
+
+.indicator-wrap{
+	display: none;
+}
+
+/*Day numbers*/
+
+.day-number {
+	font-size: 15px;
+	
+}
+
+#login-wrap{
+	margin-top:300px;
+	margin-left:100px;
+}
+
+#logout-wrap{
+	margin-top:0px;
+	margin-left:200px;
+}
+
+#register-wrap{
+	margin-top:30px;
+	margin-left:100px;
+}
+
+/* reference from https://blog.csdn.net/Changeable0127/article/details/80883626 */
+#event-wrap{
+	margin-top:100px;
+	width: 290px;
+	min-height: 310px;
+	padding: 10px;
+	border: 1px solid #ccc;
+	-webkit-box-shadow: 1px 1px 4px rgba(0,0,0, 0.1);
+	-webkit-border-bottom-right-radius: 60px 5px;
+	 box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.1); 
+	 border-bottom-right-radius: inset 60 5px;
+	 
+	   background: #86c7ff; 
+	   font-size: 18px; 
+	   color: #5f84a8; 
+	   border: 1px #d7edff solid; 
+	   border-radius: 5px; 
+	   margin: 0px 0px 7px 0px;
+	   box-shadow:5px 5px 10px gray;
+	   background: -webkit-linear-gradient(left,#d7edff, #a7d6ff); /* Safari 5.1 - 6.0 */
+	   background: -o-linear-gradient(right,#d7edff, #a7d6ff); /* Opera 11.1 - 12.0 */
+	   background: -moz-linear-gradient(right,#d7edff, #a7d6ff); /* Firefox 3.6 - 15 */
+	   background: linear-gradient(to right,#d7edff, #a7d6ff);
+}
+
+#mydialog { 
+	display:none 
+}
+
+a{
+	text-decoration: none;
+} 
+
+.study{
+	background: #EA6565;
+}
+
+.work{
+	background: greenyellow;
+}
+
+.entertainment{
+	background: skyblue;
+}
+
+.example{
+	margin-top:10px;
+}
+
+#sharecalendar{
+	top:100px;
+}
+
+input:focus{
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+	font-style:italic;
+}
+
+#sharecalendar{
+	display: inline-block;
+	 background: #fdd4b5; 
+	   width: 250px; 
+	   height: 200px;
+	   font-size: 18px; 
+	   color: #5f84a8; 
+	   border: 1px #e7daca solid; 
+	   border-radius: 5px;
+	   margin: 0px 0px 7px 0px; 
+	   box-shadow:5px 5px 10px gray;
+	   background: -webkit-linear-gradient(left, #e7daca, #ffc987); 
+	   background: -o-linear-gradient(right, #e7daca, #ffc987); 
+	   background: -moz-linear-gradient(right, #e7daca, #ffc987); 
+	   background: linear-gradient(to right, #e7daca, #ffc987);
+}
+
+#groupevents{
+	width:350px;
+	background: #fdd4b5;
+	  font-size: 18px; 
+	  color: #5f84a8; 
+	  border: 1px #e7daca solid; 
+	  border-radius: 5px;
+	  margin: 0px 0px 7px 0px; 
+	  box-shadow:5px 5px 10px gray;
+	  background: -webkit-linear-gradient(left, #e7daca, #ffc987); 
+	  background: -o-linear-gradient(right, #e7daca, #ffc987); 
+	  background: -moz-linear-gradient(right, #e7daca, #ffc987); 
+	  background: linear-gradient(to right, #e7daca, #ffc987);
+}
+
+.member-name{
+	width: 100px;
+}
+
+#all{
+    display: flex;
+}
+
+.box-wrap{
+	display: inline-block;
+	margin: 1em;
+}
+
+
+
+
+

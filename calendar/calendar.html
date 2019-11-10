@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset='utf-8'>
+        <title>Calendar</title>
+	<link rel="stylesheet" href="calendarstyle.css">
+	<script src="https://classes.engineering.wustl.edu/cse330/content/calendar.min.js"></script>
+	<script src="https://code.jquery.com/jquery-1.8.0.min.js"></script>
+	<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/start/jquery-ui.css"
+	type="text/css" rel="Stylesheet" /> <!-- We need the style sheet linked
+	 above or the dialogs/other parts of jquery-ui won't display correctly!-->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script><!-- The main library. 
+	Note: must be listed before the jquery-ui library -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js"></script><!-- jquery-UI 
+	hosted on Google's Ajax CDN-->
+	<!-- Note: you can download the javascript file from the link
+	provided on the google doc, or simply provide its URL
+	in the src attribute (microsoft and google also host the jQuery
+	library-->
+</head>
+
+<body>
+<div id="all">
+<div class="box-wrap">
+<div class="example" id="example-wrap">
+<div class="study">study</div>
+<div class="work">work</div>
+<div class="entertainment">entertainment</div>
+</div>
+
+
+<div id="event-wrap">
+	    <h3>New Event</h3>
+        title:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type="text" class="event-title" id="event-title" placeholder="title">
+        <br><br>
+        year:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type="text" class="event-year" id="event-year" placeholder="year">
+		(YYYY)
+		<br><br>
+		month:&nbsp;&nbsp;
+		<input type="text" class="event-month" id="event-month" placeholder="month">
+		(1~12)
+		<br><br>
+		date:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type="text" class="event-date" id="event-date" placeholder="date">
+		(1~31)
+		<br><br>
+		hour:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type="text" class="event-hour" id="event-hour" placeholder="hour">
+		(0~23)
+		<br><br>
+		category<br>(study/work/entertainment/other):<br>
+		<input type="text" class="event-tag" id="event-tag" placeholder="category">
+		<br><br>
+		content(within 40 words or less):<br><br>
+		<textarea  rows="5" cols="30" class="event-content" id="event-content" placeholder="content"></textarea>
+		<br><br>
+		<input type='hidden' name='hidden' id="hidden">
+		<input type="hidden" id="csrf_token">
+		Add Event:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button id="addevent_btn">add</button>
+		<br><br>
+		Modify Event:&nbsp;&nbsp;<button id="modify_btn">modify</button>
+</div>
+</div>
+
+<div class="box-wrap">
+<div class="calendar-wrap">
+	<div class="calendar" id="calendar">
+		<div class="header">
+			<div class="header-title">
+				<div class="header-title-month" id="header-title-month">MM YYYY</div>
+			</div>
+			<button class="prev" id="prev_month_btn">previous</button>
+			<button class="next" id="next_month_btn">next</button>
+		</div>
+		<div class="day-title">
+			<div>SUN</div>
+			<div>MON</div>
+			<div>TUE</div>
+			<div>WED</div>
+			<div>THU</div>
+			<div>FRI</div>
+			<div>SAT</div>
+		</div>
+		<div class="dates" id="dates"></div>
+	</div>
+</div>
+
+<div id="login-wrap" class="login-wrap">
+    <input type="text" id="username" placeholder="Username" />
+    <input type="password" id="password" placeholder="Password" />
+    <button id="login_btn">Log In</button>
+</div>
+<div id="register-wrap" class="register-wrap">
+	<input type="text" id="registername" placeholder="Username" />
+	<input type="text" id="registerpassword" placeholder="Password" />
+	<button id="register_btn">register</button>
+</div>
+
+<div id="logout-wrap" class="logout-wrap">
+	Logout:&nbsp;&nbsp;<button id="logout_btn">logout</button>
+</div>
+
+</div>
+
+<div class="box-wrap">
+<div id="sharecalendar">
+    	<h3>Share with Friends</h3>
+    	friend's username:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    	<input type="text" class="friend-name" id="friend-name" placeholder="name">
+		<input type="hidden" id="csrf_token1">
+		<br><br>
+		Share Calendar:&nbsp;&nbsp;<button id="sharebutton">share</button>
+</div>
+
+<div id="groupevents">
+	<h3>Group Events</h3>
+	title:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<input type="text" class="group-title" id="group-title" placeholder="title">
+	<br><br>
+	year:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<input type="text" class="group-year" id="group-year" placeholder="year">
+	(YYYY)
+	<br><br>
+	month:&nbsp;&nbsp;
+	<input type="text" class="group-month" id="group-month" placeholder="month">
+	(1~12)
+	<br><br>
+	date:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<input type="text" class="group-date" id="group-date" placeholder="date">
+	(1~31)
+	<br><br>
+	hour:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<input type="text" class="group-hour" id="group-hour" placeholder="hour">
+	(0~23)
+	<br><br>
+	category<br>(study/work/entertainment/other):<br>
+	<input type="text" class="group-tag" id="group-tag" placeholder="category">
+	<br><br>
+	content(within 40 words or less):<br><br>
+	<textarea  rows="5" cols="30" class="group-content" id="group-content" placeholder="content"></textarea>
+	<br><br>
+	group members:(ex: user1;user2;user3)
+	<br><br>
+	name:&nbsp;&nbsp;<input type="text" class="member-name" id="member-name" placeholder="name">
+	<br><br>
+	<input type="hidden" id="csrf_token2">
+	Create:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button id="groupbutton">create</button>
+</div>
+</div>
+</div>
+
+<div class="events" id="mydialog" title="content"></div>
+
+<script src="login.js"></script> 
+<script src="timechange.js"></script>
+<script src="event.js"></script> 
+
+</body>
+</html>
