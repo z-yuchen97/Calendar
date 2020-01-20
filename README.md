@@ -4,7 +4,7 @@
 This is a *calendar* app designed by HTML/CSS/JS/jQuery/AJAX/PHP/MySQL  
   
 **Login Page:**  
-http://ec2-54-84-109-133.compute-1.amazonaws.com/module5/calendar.html;   
+http://ec2-35-153-157-195.compute-1.amazonaws.com/module5/calendar.html;   
 
 **Function description:**  
 + Users can tag an event with a particular category and enable/disable those tags in the calendar view.  
